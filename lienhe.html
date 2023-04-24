@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Liên Hệ</title>
+</head>
+<style>
+ form {
+  display: flex;
+  flex-direction: column;
+  max-width: 500px;
+
+}
+
+label {
+  margin-top: 10px;
+}
+
+input, textarea {
+  padding: 5px;
+  border-radius: 3px;
+  border: 1px solid #ccc;
+}
+
+button[type="submit"] {
+  margin-top: 10px;
+  padding: 8px 16px;
+  background-color: #4CAF50;
+  color: white;
+  border: none;
+  border-radius: 3px;
+  cursor: pointer;
+}
+
+button[type="submit"]:hover {
+  background-color: #2E8B57;
+}
+.image22{
+    text-align: center;
+    color: rgb(12, 152, 56);
+}
+.imagett{
+    text-align: center;
+}
+</style>
+<body >
+         <div class="image22">
+            <h1>Liên Hệ</h1>
+        </div>
+    <form action="send_email.php" method="POST" >
+        <label for="name">Họ và tên:</label>
+        <input type="text" id="name" name="name" required>
+      
+        <label for="email">Địa chỉ email:</label>
+        <input type="email" id="email" name="email" required>
+      
+        <label for="phone">Số điện thoại:</label>
+        <input type="tel" id="phone" name="phone">
+      
+        <label for="address">Địa chỉ giao hàng:</label>
+        <input type="text" id="address" name="address" required>
+      
+        <label for="order">Thông tin đặt hàng:</label>
+        <textarea id="order" name="order"></textarea>
+      
+        <label for="message">Lời nhắn:</label>
+        <textarea id="message" name="message"></textarea>
+      
+        <button type="submit">Gửi</button>
+      </form>
+</body>
+</html>

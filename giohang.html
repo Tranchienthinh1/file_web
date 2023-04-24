@@ -1,0 +1,333 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Giỏ Hàng</title>
+</head>
+<body>
+    <style>
+		/* Định dạng cho các tiêu đề */
+		h1, h2 {
+			margin-bottom: 0;
+		}
+
+		/* Định dạng cho bảng giỏ hàng */
+		table {
+			border-collapse: collapse;
+			width: 100%;
+		}
+		th, td {
+			text-align: left;
+			padding: 8px;
+		}
+		th {
+			background-color: #f2f2f2;
+		}
+		td {
+			border-bottom: 1px solid #ddd;
+		}
+
+		/* Định dạng cho các nút */
+		button {
+			background-color: #4CAF50; /* Màu xanh lá cây */
+			color: white;
+			padding: 8px 12px;
+			border: none;
+			cursor: pointer;
+		}
+		button:hover {
+			background-color: #3e8e41; /* Hiệu ứng khi rê chuột vào nút */
+		}
+        /* Định dạng cho bảng giỏ hàng */
+table {
+    border-collapse: collapse;
+    width: 100%;
+}
+th, td {
+    padding: 8px;
+    text-align: left;
+    font-size: 14px;
+}
+th {
+    background-color: #f2f2f2;
+}
+td {
+    border-bottom: 1px solid #ddd;
+}
+td:first-child {
+    width: 40%;
+}
+td:nth-child(2) {
+    width: 20%;
+}
+td:nth-child(3) {
+    width: 15%;
+}
+td:last-child {
+    width: 25%;
+}
+
+/* Định dạng cho nút */
+button {
+    background-color: #4CAF50;
+    color: white;
+    padding: 8px 12px;
+    border: none;
+    cursor: pointer;
+    text-align:center;
+}
+button:hover {
+    background-color: #3e8e41;
+}
+/* Định dạng phần tiêu đề */
+header {
+    background-color: #a5f5f2fb;
+    color: #1f7eeb;
+    padding: 20px;
+}
+
+header h1 {
+    margin: 0;
+    font-size: 36px;
+    text-align: center;
+}
+
+nav ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+}
+
+nav li {
+    margin-right: 20px;
+    justify-content: center;
+}
+
+nav a {
+    color: #04b542;
+    text-decoration: none;
+    font-size: 18px;
+    justify-content: center;
+
+}
+
+nav a:hover {
+    border-bottom: 2px solid #1ecbee;
+}
+
+/* Định dạng phần chân trang */
+footer {
+    background-color: #333;
+    color: #fff;
+    padding: 20px;
+}
+
+footer p {
+    margin: 0;
+}
+
+/* Định dạng phần sản phẩm */
+section {
+    padding: 20px;
+
+}
+
+.section-title {
+    font-size: 24px;
+    margin-bottom: 10px;
+}
+
+.product-grid {
+    display: grid;
+    gap: 20px;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+}
+
+.product-card {
+    background-color: #fff;
+    border-radius: 4px;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+}
+
+.product-img {
+    height: 200px;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.product-info {
+    padding: 20px;
+    text-align: center;
+}
+
+.product-name {
+    font-size: 18px;
+    margin-bottom: 10px;
+}
+
+.product-price {
+    font-size: 24px;
+}
+/* Thiết kế cho phần Giỏ hàng */
+#cart {
+  border-collapse: collapse;
+  width: 100%;
+}
+
+#cart th, #cart td {
+  text-align: left;
+  padding: 8px;
+}
+
+#cart tr:nth-child(even){background-color: #f2f2f2;}
+
+#cart th {
+  background-color: #4CAF50;
+  color: white;
+}
+
+/* Thiết kế cho phần form thêm sản phẩm */
+#add-to-cart-form {
+  display: flex;
+  flex-direction: column;
+  max-width: 500px;
+  margin: 0 auto;
+}
+
+#add-to-cart-form input[type=text], 
+#add-to-cart-form input[type=number] {
+  padding: 12px 20px;
+  margin: 8px 0;
+  box-sizing: border-box;
+  border: none;
+  border-bottom: 2px solid #4CAF50;
+}
+
+#add-to-cart-form button[type=submit] {
+  background-color: #4CAF50;
+  color: white;
+  padding: 12px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  margin-top: 10px;
+}
+
+#add-to-cart-form button[type=submit]:hover {
+  background-color: #45a049;
+}
+	</style>
+</head>
+<body>
+	<header>
+		<h1>Trang web của tôi</h1>
+		<nav>
+			<ul>
+				<li><a href="test.html">Trang chủ</a></li>
+				<li><a href="sanpham.html">Sản phẩm</a></li>
+				<li><a href="giohang.html">Giỏ hàng</a></li>
+			</ul>
+		</nav>
+	</header>
+
+	<section>
+		<h2>Giỏ hàng</h2>
+<table id="cart">
+    <thead>
+        <tr>
+            <th>Tên sản phẩm</th>
+            <th>Giá</th>
+            <th>Số lượng</th>
+            <th>Tổng cộng</th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        <!-- Các hàng trong bảng giỏ hàng sẽ được thêm bằng JavaScript -->
+    </tbody>
+</table>
+
+<h2>Thêm sản phẩm vào giỏ hàng</h2>
+<form id="add-to-cart-form">
+    <input type="text" name="product-name" placeholder="Tên sản phẩm">
+    <input type="number" name="product-price" placeholder="Giá sản phẩm">
+    <input type="number" name="product-quantity" placeholder="Số lượng">
+    <button type="submit">Thêm vào giỏ hàng</button>
+</form>
+			
+		</table>
+		<button>Tiến hành thanh toán</button>
+	</section>
+	<footer>
+		<p>Cảm ơn bạn đã tin dùng sản phẩm của Food Cutii</p>
+	</footer>
+    <script>
+      // Lấy các phần tử HTML cần thiết
+var cart = document.getElementById("cart");
+var addToCartForm = document.getElementById("add-to-cart-form");
+
+// Lắng nghe sự kiện submit của form
+addToCartForm.addEventListener("submit", addItem);
+
+// Hàm xử lý sự kiện thêm sản phẩm mới vào giỏ hàng
+function addItem(event) {
+    event.preventDefault();
+    
+    var form = event.target;
+    var productName = form.elements["product-name"].value;
+    var productPrice = parseFloat(form.elements["product-price"].value);
+    var productQuantity = parseInt(form.elements["product-quantity"].value);
+    var productTotal = productPrice * productQuantity;
+
+    // Tạo một hàng mới trong bảng giỏ hàng
+    var newRow = document.createElement("tr");
+    newRow.innerHTML = "<td>" + productName + "</td><td>" + productPrice + "</td><td><input type='number' value='" + productQuantity + "'></td><td>" + productTotal + "</td><td><button class='remove-item'>Xóa</button></td>";
+    cart.appendChild(newRow);
+
+    // Lắng nghe sự kiện click vào nút "Xóa"
+    var removeButtons = document.getElementsByClassName("remove-item");
+
+    for (var i = 0; i < removeButtons.length; i++) {
+        var button = removeButtons[i];
+        button.addEventListener("click", removeItem);
+    }
+
+    updateCart();
+}
+
+// Hàm xử lý sự kiện xóa sản phẩm khỏi giỏ hàng
+function removeItem(event) {
+    var buttonClicked = event.target;
+    buttonClicked.parentElement.parentElement.remove();
+    updateCart();
+}
+
+// Hàm cập nhật tổng số lượng và tổng giá trị của giỏ hàng
+function updateCart() {
+    var items = cart.getElementsByTagName("tbody")[0].getElementsByTagName("tr");
+    var itemCount = 0;
+    var totalPrice = 0;
+
+    for (var i = 0; i < items.length; i++) {
+        var item = items[i];
+        var quantity = parseInt(item.getElementsByTagName("input")[0].value);
+        var price = parseFloat(item.getElementsByTagName("td")[1].textContent);
+        var total = quantity * price;
+
+        itemCount += quantity;
+        totalPrice += total;
+        item.getElementsByTagName("td")[3].textContent = total;
+    }
+
+    document.getElementById("item-count").textContent = itemCount;
+    document.getElementById("total-price").textContent = totalPrice;
+}
+    </script>
+</body>
+</html>
